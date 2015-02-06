@@ -1,0 +1,19 @@
+{
+  "name": "CashFlow",
+  "version": "0.0.1",
+  "description": "personal finance tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alexandrusima/cashflow.git"
+  },
+  "author": "Alexandru Sima",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/alexandrusima/cashflow/issues"
+  },
+  "homepage": "https://github.com/alexandrusima/cashflow"
+}

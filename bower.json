@@ -1,0 +1,10 @@
+{
+    "name": "CashFlow",
+    "version": "0.0.1",
+    "description": "personal finance tool",
+    "authors": [
+        "Alexandru Sima <alexandru.sima20@gmail.com>"
+    ],
+    "license": "GNU",
+    "private": true
+}
