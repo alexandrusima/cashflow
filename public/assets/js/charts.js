@@ -467,10 +467,10 @@ $(function() {
  Map
  -----------------------------------------------------------*/
 $(function(){
-    //USA Map
-    if($('#usa-map')[0]) {
-	$('#usa-map').vectorMap({
-            map: 'us_aea_en',
+    //romania Map
+    if($('#romania-map')[0]) {
+	$('#romania-map').vectorMap({
+            map: 'romania_aea',
             backgroundColor: 'rgba(0,0,0,0.25)',
             regionStyle: {
                 initial: {
@@ -481,11 +481,11 @@ $(function(){
                 },
             },
     
-            zoomMin:0.88,
+            zoomMin:0,
             focusOn:{
-                x: 5,
+                x: 3,
                 y: 1,
-                scale: 1.8
+                scale: 0.9
             },
             markerStyle: {
                 initial: {
@@ -506,15 +506,10 @@ $(function(){
                 selectedHover: {
                 }
             },
-            zoomOnScroll: false,
+            zoomOnScroll: true,
     
             markers :[
-                {latLng: [33, -86], name: 'Sample Name 1'},
-                {latLng: [33.7, -93], name: 'Sample Name 2'},
-                {latLng: [36, -79], name: 'Sample Name 3'},
-                {latLng: [29, -99], name: 'Sample Name 4'},
-                {latLng: [33, -95], name: 'Sample Name 4'},
-                {latLng: [31, -92], name: 'Liechtenstein'},
+                {latLng: [46.6423883,27.7285481], name: 'Nea gigel vaslui'}
             ],
         });
     }

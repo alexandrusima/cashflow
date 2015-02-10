@@ -6,8 +6,9 @@
             transclude: true, 
             replace: true,
             templateUrl: 'templates/directives/sidebar.html',
+            priority: 2, 
             scope: {
-                toogleBtn: '@'
+                toogle: '@'
             },
             controller: 'sidebarController',
         };

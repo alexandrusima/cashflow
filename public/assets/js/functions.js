@@ -58,8 +58,8 @@ $(document).ready(function(){
         /* Menu Toggle */
         $('body').on('click touchstart', '#menu-toggle', function(e){
             e.preventDefault();
-            $('html').toggleClass('menu-active');
-            $('#sidebar').toggleClass('toggled');
+            // $('html').toggleClass('menu-active');
+            // $('#sidebar').toggleClass('toggled');
             //$('#content').toggleClass('m-0');
         });
          

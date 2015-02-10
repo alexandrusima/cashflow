@@ -24,8 +24,8 @@
     <body id="skin-blur-violate">
 
         <header id="header" class="media">
-            <a href="" id="menu-toggle"></a> 
-            <a class="logo pull-left" href="index.html">SUPER ADMIN 1.0</a>
+            <a href="" sidebar-toggle id="menu-toggle"></a> 
+            <a class="logo pull-left" href="index.html">CashFlow 0.0.1</a>
             
             <div class="media-body">
                 <div class="media" id="top-menu">
@@ -66,7 +66,7 @@
         <section id="main" class="p-relative" role="main" ng-view>
             
             <!-- Sidebar -->
-         <sidebar-menu toogleBtn="menu-toggle">
+         <sidebar-menu>
           <li class="active">
 	            <a class="sa-side-home" href="index.html">
 	                <span class="menu-item">Dashboard</span>
@@ -589,7 +589,6 @@
                         </div>
                         
                         <div class="col-md-4">
-                            <!-- USA Map -->
                             <div class="tile">
                                 <h2 class="tile-title">Live Visits</h2>
                                 <div class="tile-config dropdown">
@@ -600,7 +599,7 @@
                                     </ul>
                                 </div>
                                 
-                                <div id="usa-map"></div>
+                                <div id="romania-map"></div>
                             </div>
     
                             <!-- Dynamic Chart -->
@@ -847,7 +846,7 @@
 
         <!-- Map -->
         <script src="assets/js/maps/jvectormap.min.js"></script> <!-- jVectorMap main library -->
-        <script src="assets/js/maps/usa.js"></script> <!-- USA Map for jVectorMap -->
+        <script src="assets/js/maps/romania.js"></script>
 
         <!--  Form Related -->
         <script src="assets/js/icheck.js"></script> <!-- Custom Checkbox + Radio -->
@@ -866,5 +865,6 @@
 		<script type="text/javascript" src="app/js/cashFlowApp.js"></script>
 		<script type="text/javascript" src="app/js/controllers/sidebarController.js"></script>
 		<script type="text/javascript" src="app/js/directives/sidebarDirective.js"></script>
+		<script type="text/javascript" src="app/js/directives/toogle.js"></script>
     </body>
 </html>
