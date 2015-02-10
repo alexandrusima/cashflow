@@ -1,10 +1,27 @@
 {
-    "name": "CashFlow",
-    "version": "0.0.1",
-    "description": "personal finance tool",
-    "authors": [
-        "Alexandru Sima <alexandru.sima20@gmail.com>"
-    ],
-    "license": "GNU",
-    "private": true
+  "name": "CashFlow",
+  "version": "0.0.1",
+  "description": "personal finance tool",
+  "authors": [
+    "Alexandru Sima <alexandru.sima20@gmail.com>"
+  ],
+  "license": "GNU",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.3.12",
+    "angular-ui": "*",
+    "bootstrap": "~3.3.2"
+  },
+  "resolutions": {
+    "angular": ">=1 <1.3.0"
+  },
+  "homepage": "https://github.com/alexandrusima/cashflow",
+  "main": "public/index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
