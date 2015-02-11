@@ -1,3 +1,2 @@
-(function () {
     angular.module('cashFlowApp', []);
-})();
+

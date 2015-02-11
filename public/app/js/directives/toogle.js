@@ -1,4 +1,3 @@
-(function () {
     angular.module('cashFlowApp').directive('sidebarToggle', function () {
         return {
             restrict: 'A',
@@ -16,4 +15,3 @@
             }
         };
     });
-})();
