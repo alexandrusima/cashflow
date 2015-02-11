@@ -1957,6 +1957,13 @@ a.list-group-item.active > .badge,
         padding-left: 45px;
     }
 
+    #sidebar.shown {
+        display:block;
+    }
+    #sidebar:not(["class*=shown"]) {
+        display:none;
+    }
+
     #sidebar.toggled {
         position: absolute;
         left: -233px;

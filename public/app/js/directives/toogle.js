@@ -3,13 +3,13 @@
         return {
             restrict: 'A',
             scope: {
-                toogle: '@toogle'
+                toggle: '@',
             },
             link: function (scope, iElement, iAttrs) {
                 iElement.on('click', function (e) {
-                    var el = angular.element('#'+scope.toogle);
+                    var el = angular.element('#'+scope.toggle);
                     el.toggleClass('toggled');
-                    // angular.element('html').toggleClass('menu-active');
+                    angular.element('html').toggleClass('menu-active');
                     
                 });
                 

@@ -9,4 +9,4 @@ app.use(express.static(__dirname + '/public/'));
 app.get('*', function(req, res) {
     res.render('index');
 });
-app.listen(8080, '192.168.184.128');
+app.listen(8080, 'localhost');
