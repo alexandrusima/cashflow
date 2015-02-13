@@ -1,2 +1,4 @@
-    angular.module('cashFlowApp', []);
+(function (){
+    angular.module('cashFlowApp', ["ui.bootstrap"]);
+})();
 

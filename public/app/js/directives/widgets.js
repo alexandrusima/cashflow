@@ -1,3 +1,4 @@
+(function (){
     angular.module('cashFlowApp').directive('widgets', function () {
         return {
             restrict: 'E',
@@ -6,3 +7,4 @@
             templateUrl: 'templates/directives/widgets.html'
         };
     });
+})();

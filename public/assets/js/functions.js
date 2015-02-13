@@ -166,7 +166,7 @@ $(document).ready(function(){
             var m = date.getMonth();
             var y = date.getFullYear();
             $('#sidebar-calendar').fullCalendar({
-                editable: false,
+                editable: true,
                 events: [],
                 header: {
                     left: 'title'
@@ -215,11 +215,11 @@ $(document).ready(function(){
     (function(){
 	if($('#news-feed')[0]){
 	    $('#news-feed').FeedEk({
-		FeedUrl: 'http://rss.cnn.com/rss/edition.rss',
-		MaxCount: 5,
+		FeedUrl: 'http://antena3.ro/rss',
+		MaxCount: 15,
 		ShowDesc: false,
 		ShowPubDate: true,
-		DescCharacterLimit: 0
+		DescCharacterLimit: 250
 	    });
 	}
     })();

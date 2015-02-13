@@ -1,3 +1,4 @@
+(function (){
     angular.module('cashFlowApp').
         directive('sidebar', function () {
         return {
@@ -7,3 +8,4 @@
             templateUrl: 'templates/directives/sidebar.html',
         };
     });
+})();

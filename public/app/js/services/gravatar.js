@@ -1,4 +1,4 @@
-
+(function (){
     angular.module('cashFlowApp').service('gravatarUrlBuilder', function () {
         return {
             getGravatarImage: function (email) {
@@ -199,3 +199,4 @@
             }
         };
     });
+})();

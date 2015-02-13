@@ -1,13 +1,42 @@
-    angular.module('cashFlowApp').controller('profileWidgetController', ['$scope', 'gravatarUrlBuilder', function ($scope, gravatarUrlBuilder) {
-        $scope.user = { 
+(function() {
+    angular.module('cashFlowApp').controller('profileWidgetController', profileWidgetController); 
+
+    profileWidgetController.$inject = ['$scope','$modal', 'gravatarUrlBuilder'];
+    function profileWidgetController($scope, $modal, gravatarUrlBuilder) {
+        var vm = this;
+        vm.user = { 
             firstName: 'Alexandru',
             lastName: 'Sima',
             email: 'alexandru.sima20@gmail.com' 
         };
-        $scope.getGravatarImage = function (email) {
+
+        vm.menu = {
+            isopen:  false,
+            toogle: function () {
+                vm.menu.isopen = !vm.menu.isopen;
+            }
+        };
+        vm.getGravatarImage = function (email) {
             return gravatarUrlBuilder.getGravatarImage(email);
         }
-    }]);
+        vm.confirm = function () {
+            var modalInstance = $modal.open({
+                templateUrl: '/lib/modal-confirm/confirm-modal.html',
+                controller: 'ConfirmModalController',
+                controllerAs: 'vm',
+                resolve: {
+                    data: function() { 
+                        return {
+                            title: 'Delete',
+                            message: 'Are you sure?!',
+                            buttons: ['OK', 'Cancel']
+                        }
+                    }
+                },
+                windowClass: 'huge'                
+            });
+        };
+    };
 
 
     angular.module('cashFlowApp').directive('profileWidget', function () {
@@ -17,6 +46,7 @@
             replace: true,
             templateUrl: 'templates/directives/widgets/profileWidget.html',
             controller: 'profileWidgetController',
-
+            controllerAs: 'vm'
         };
     });
+})();

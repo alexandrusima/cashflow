@@ -1,3 +1,4 @@
+(function (){
     angular.module('cashFlowApp').directive('sidebarToggle', function () {
         return {
             restrict: 'A',
@@ -9,9 +10,9 @@
                     var el = angular.element('#'+scope.toggle);
                     el.toggleClass('toggled');
                     angular.element('html').toggleClass('menu-active');
-                    
                 });
                 
             }
         };
     });
+})();

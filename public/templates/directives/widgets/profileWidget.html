@@ -1,17 +1,19 @@
-        <div class="text-center s-widget m-b-25 dropdown" id="profile-menu" ng-controller='profileWidgetController'>
-
-            <a href="" data-toggle="dropdown">
-                <img class="profile-pic animated" ng-src="{{ getGravatarImage(user.email) }}" alt="">
-            </a>
-            <ul class="dropdown-menu profile-menu">
-                <li><a href="">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
-                </li>
-                <li><a href="">Messages</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
-                </li>
-                <li><a href="">Settings</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
-                </li>
-                <li><a href="">Sign Out</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
-                </li>
-            </ul>
-            <h4 class="m-0">{{ user.firstName + ' ' + user.lastName }}</h4>
-        </div>
+<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+        <img class="profile-pic animated" ng-click='vm.menu.toogle()' ng-src="{{ vm.getGravatarImage(vm.user.email) }}" alt="">
+    
+    <ul class="profile-menu list-unstyled" ng-show='vm.menu.isopen'>
+        <li>
+            <a href="#/">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
+        </li>
+        <li>
+            <a href="#/">Messages</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
+        </li>
+        <li>
+            <a href="#/">Settings</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
+        </li>
+        <li>
+            <a ng-click="vm.confirm()">Sign Out</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i>
+        </li>
+    </ul>
+    <h4 class="m-0">{{ vm.user.firstName + ' ' + vm.user.lastName }}</h4>
+</div>
