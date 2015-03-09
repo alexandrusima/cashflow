@@ -1,4 +1,4 @@
-(function (){
+(function () {
     angular.module('cashFlowApp').directive('widgets', function () {
         return {
             restrict: 'E',

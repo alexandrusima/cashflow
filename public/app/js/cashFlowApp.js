@@ -1,4 +1,3 @@
-(function (){
-    angular.module('cashFlowApp', ["ui.bootstrap"]);
+(function () {
+    angular.module('cashFlowApp', ['ui.bootstrap']);
 })();
-

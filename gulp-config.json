@@ -1,0 +1,9 @@
+{
+    "jsPath" : [ 
+        "public/**/*.js",
+        "!public/**/*.min.js",
+        "!public/assets/**/*.js",
+        "!public/bower_components/**/*.js",
+        "!**/gravatar.js"
+        ]
+}

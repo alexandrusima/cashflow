@@ -1,7 +1,7 @@
-(function (){
+(function () {
     'use strict';
 
-    angular.module('cashFlowApp').controller('ConfirmModalController',ConfirmModalController);
+    angular.module('cashFlowApp').controller('ConfirmModalController', ConfirmModalController);
     ConfirmModalController.$inject = ['$modalInstance', 'data'];
 
     function ConfirmModalController($modalInstance, data) {
@@ -13,7 +13,7 @@
         function cancel() {
             $modalInstance.dismiss();
         }
-        
+
         function ok() {
             $modalInstance.close();
         }
