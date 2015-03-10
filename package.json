@@ -2,7 +2,7 @@
   "name": "CashFlow",
   "version": "0.0.1",
   "description": "personal finance tool",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "test"
   },
@@ -38,6 +38,6 @@
     "http-server": "^0.7.5",
     "jshint-stylish": "^1.0.1",
     "wiredep": "^2.2.2",
-    "yargs": "^3.4.5"
+    "yargs": "^3.5.3"
   }
 }

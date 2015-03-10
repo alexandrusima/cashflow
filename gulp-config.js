@@ -5,11 +5,11 @@ module.exports = function () {
     var lib          = client + 'lib/';
     var config = {
         temp: client + '.tmp/',
-        jsPath : [ 
+        jsPath : [
             client + '**/*.js',
-            '!'+ client +'/**/*.min.js',
-            '!'+ client +'/assets/**/*.js',
-            '!'+ client +'/bower_components/**/*.js',
+            '!' + client + '/**/*.min.js',
+            '!' + client + '/assets/**/*.js',
+            '!' + client + '/bower_components/**/*.js',
             '!**/gravatar.js'
             ],
         less: client + '/assets/less/main.less',
@@ -27,7 +27,7 @@ module.exports = function () {
         indexDest: './',
         client: client,
         js: [
-                client + 'assets/js/charts/jquery.flot.animator.min.js',
+                client + 'assets/js/charts/jquery.flot.animator.js',
                 client + 'assets/js/sparkline.min.js',
                 client + 'assets/js/easypiechart.js',
                 client + 'assets/js/charts.js',

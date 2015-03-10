@@ -16,7 +16,7 @@ gulp.task('vet', function () {
         .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('clean-styles', function (done){
+gulp.task('clean-styles', function (done) {
     var files = config.temp + '**/*.css';
     clean(files, done);
 
@@ -43,17 +43,12 @@ gulp.task('wiredep', function() {
     var wiredep = require('wiredep').stream;
 
     return gulp.src(config.index)
-           .on('error', errorLogger)
            .pipe(wiredep(options))
            .pipe($.inject(gulp.src(config.js)))
            .pipe($.inject(gulp.src(config.css)))
            .pipe(gulp.dest(config.indexDest));
 });
 
-
-/// 
-///
-///
 function errorLogger(error) {
     log('************* start of error ************');
     log(error);
@@ -62,9 +57,9 @@ function errorLogger(error) {
 }
 
 function log(msg) {
-    if(typeof(msg) === 'object') {
+    if (typeof(msg) === 'object') {
         for (var item in msg) {
-            if(msg.hasOwnProperty(item)) {
+            if (msg.hasOwnProperty(item)) {
                 $.util.log($.util.colors.green(msg[item]));
             }
         }
