@@ -37,13 +37,26 @@ gulp.task('less-watcher', function () {
     gulp.watch([config.less], ['styles']);
 });
 
+gulp.task('wiredep', function() {
+    log('working on Dependencies');
+    var options = config.getWiredepDefaultOptions();
+    var wiredep = require('wiredep').stream;
+
+    return gulp.src(config.index)
+           .on('error', errorLogger)
+           .pipe(wiredep(options))
+           .pipe($.inject(gulp.src(config.js)))
+           .pipe($.inject(gulp.src(config.css)))
+           .pipe(gulp.dest(config.indexDest));
+});
+
 
 /// 
 ///
 ///
 function errorLogger(error) {
     log('************* start of error ************');
-    log(error)
+    log(error);
     log('************* end of error ************');
     this.emit('end');
 }
@@ -54,7 +67,7 @@ function log(msg) {
             if(msg.hasOwnProperty(item)) {
                 $.util.log($.util.colors.green(msg[item]));
             }
-        };
+        }
     }
     else {
         $.util.log($.util.colors.green(msg));
