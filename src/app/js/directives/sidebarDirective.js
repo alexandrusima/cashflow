@@ -5,7 +5,7 @@
             restrict: 'E',
             transclude: true,
             replace: true,
-            templateUrl: 'templates/directives/sidebar.html',
+            templateUrl: 'src/templates/directives/sidebar.html',
         };
     });
 })();

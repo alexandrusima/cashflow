@@ -20,7 +20,7 @@
         };
         vm.confirm = function () {
             var modalInstance = $modal.open({
-                templateUrl: '/lib/modal-confirm/confirm-modal.html',
+                templateUrl: 'src/lib/modal-confirm/confirm-modal.html',
                 controller: 'ConfirmModalController',
                 controllerAs: 'vm',
                 resolve: {
@@ -42,7 +42,7 @@
             restrict: 'E',
             transclude: true,
             replace: true,
-            templateUrl: 'templates/directives/widgets/profileWidget.html',
+            templateUrl: 'src/templates/directives/widgets/profileWidget.html',
             controller: 'profileWidgetController',
             controllerAs: 'vm'
         };

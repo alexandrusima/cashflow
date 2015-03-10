@@ -4,7 +4,7 @@
             restrict: 'E',
             transclude: true,
             replace: true,
-            templateUrl: 'templates/directives/widgets.html'
+            templateUrl: 'src/templates/directives/widgets.html'
         };
     });
 })();
