@@ -1,4 +1,4 @@
-(function (){
+(function () {
     angular.module('cashFlowApp').directive('userImage', function () {
         return {
             restrict: 'E',
