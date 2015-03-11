@@ -27,9 +27,8 @@ module.exports = function () {
         indexDest: './',
         client: client,
         js: [
-                client + 'assets/js/charts/jquery.flot.animator.js',
-                client + 'assets/js/sparkline.min.js',
                 client + 'assets/js/charts.js',
+                client + 'assets/js/charts/jquery.flot.animator.js',
                 client + 'assets/js/maps/romania.js',
                 client + 'assets/js/functions.js',
                 client + 'app/js/cashFlowApp.js',

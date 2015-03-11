@@ -16,7 +16,8 @@
 		// Browser globals.
 		factory(jQuery);
 	}
-}(function(jQuery){
+}
+(function(jQuery){
 
   // globals
   var domfocus = false;
@@ -3257,5 +3258,5 @@
    $.nicescroll.options = _globaloptions;
   }
   
-}));
+}))(jQuery);
   

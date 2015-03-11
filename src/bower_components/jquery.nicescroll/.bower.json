@@ -20,8 +20,8 @@
     "tag": "3.5.6",
     "commit": "2c6bf3b5d6eae4398a37250995745e8bf453667c"
   },
-  "_source": "git://github.com/inuyaksa/jquery.nicescroll.git",
+  "_source": "git@github.com:inuyaksa/jquery.nicescroll.git",
   "_target": "~3.5.6",
-  "_originalSource": "jquery.nicescroll",
+  "_originalSource": "git@github.com:inuyaksa/jquery.nicescroll.git",
   "_direct": true
 }
