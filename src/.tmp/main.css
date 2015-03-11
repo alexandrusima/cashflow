@@ -1,6 +1,0 @@
-div.block-area.shortcut-area {
-  -webkit-transform-origin: center bottom;
-          transform-origin: center bottom;
-  background: blue;
-  border: 1px solid blue;
-}
