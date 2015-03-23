@@ -1,10 +1,27 @@
 module.exports = function () {
-    var client = './src/';
+    var client = './src/client/';
     var clientApp    = client + 'app/';
     var clientAssets = client + 'assets/';
     var lib          = client + 'lib/';
+    var build        = './build/';
+    var buildAssets  = build + 'assets/';
     var config = {
         temp: client + '.tmp/',
+        build: {
+            fontsDest: buildAssets + 'fonts/',
+            imagesDest: buildAssets + 'img/'
+
+        },
+        buildPath: build,
+        dev: {
+            fonts: [
+                clientAssets + 'fonts/**/*.*',
+                client + 'bower_components/font-awesome/fonts/**/*.*'
+            ],
+            images: [
+                clientAssets + 'img/**/*.*'
+            ]
+        },
         jsPath : [
             client + '**/*.js',
             '!' + client + '/**/*.min.js',
@@ -15,6 +32,7 @@ module.exports = function () {
         less: client + '/assets/less/main.less',
         css: [
             clientAssets + 'css/**/*.css*',
+            client + '.tmp/main.css',
             '!' + clientAssets + 'css/**/*.min.css*'
 
         ],
@@ -27,6 +45,7 @@ module.exports = function () {
         indexDest: './',
         client: client,
         js: [
+                client + 'assets/js/requirejs.js',
                 client + 'assets/js/charts.js',
                 client + 'assets/js/charts/jquery.flot.animator.js',
                 client + 'assets/js/maps/romania.js',
@@ -39,7 +58,18 @@ module.exports = function () {
                 client + 'app/js/directives/widgets.js',
                 client + 'app/js/directives/widgets/profile.js',
                 client + 'lib/modal-confirm/confirm-modal.controller.js',
-        ]
+        ],
+        webserver: {
+            host: '127.0.0.1',
+            delayTime: 1,
+            env: {
+                'PORT': 7320,
+                'NODE_ENV': 'dev'
+            },
+            script: './src/server/app.js',
+            watch: ['./src/server']
+        },
+        browserReloadDelay: 1000
     };
     config.getWiredepDefaultOptions = function () {
         return {
@@ -47,6 +77,9 @@ module.exports = function () {
             directory: config.bower.directory,
             ignorePath: config.bower.ignorePath
         };
+    };
+    config.getWebserverOptions = function () {
+        return config.webserver;
     };
     return config;
 };
