@@ -20,7 +20,7 @@
         };
         vm.confirm = function () {
             var modalInstance = $modal.open({
-                templateUrl: 'src/client/lib/modal-confirm/confirm-modal.html',
+                templateUrl: 'src/client/templates/directives/confirm-modal.html',
                 controller: 'ConfirmModalController',
                 controllerAs: 'vm',
                 resolve: {

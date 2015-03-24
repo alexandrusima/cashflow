@@ -9,11 +9,11 @@ var $ = require('gulp-load-plugins')({lazy: true});
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
-gulp.task('template-cache', function () {
+gulp.task('template-cache', ['clean-build-code'], function () {
     log('Creating AngularJs $templateCache');
     return gulp.src(config.dev.htmltemplates)
                .pipe($.minifyHtml({empty: true}))
-               .pipe($.angularTemplateCache(
+               .pipe($.angularTemplatecache(
                         config.templateCache.file,
                         config.templateCache.options
                 ))
