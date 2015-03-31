@@ -216,7 +216,7 @@ $(document).ready(function(){
 	if($('#news-feed')[0]){
 	    $('#news-feed').FeedEk({
 		FeedUrl: 'http://antena3.ro/rss',
-		MaxCount: 3,
+		MaxCount: 15,
 		ShowDesc: false,
 		ShowPubDate: true,
 		DescCharacterLimit: 250

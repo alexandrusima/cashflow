@@ -17,6 +17,7 @@ module.exports = function () {
 
         },
         buildPath: build,
+        buildAssets: buildAssets,
         dev: {
             fonts: [
                 clientAssets + 'fonts/**/*.*',
@@ -26,11 +27,11 @@ module.exports = function () {
                 clientAssets + 'img/**/*.*'
             ],
             htmltemplates: [
-                client + '**/*.html',
-                '!' + client + 'bower_components/**/*.html'
+                client + '**/*.html'
             ]
         },
         client: client,
+        clientAssets: clientAssets,
         css: [
             clientAssets + 'css/**/*.css*',
             client + '.tmp/main.css',
@@ -65,7 +66,7 @@ module.exports = function () {
         templateCache: {
             file: 'templates.js',
             options: {
-                module: 'cashFlowApp.core',
+                module: 'cashFlowApp',
                 standAlone: false,
                 root: client
             }
@@ -73,10 +74,6 @@ module.exports = function () {
         webserver: {
             host: '127.0.0.1',
             delayTime: 1,
-            env: {
-                'PORT': 7320,
-                'NODE_ENV': 'dev'
-            },
             script: './src/server/app.js',
             watch: ['./src/server']
         },
@@ -89,8 +86,14 @@ module.exports = function () {
             ignorePath: config.bower.ignorePath
         };
     };
-    config.getWebserverOptions = function () {
-        return config.webserver;
+
+    config.getWebserverOptions = function (isDev) {
+        var options     = config.webserver;
+        options.env = {
+                'PORT': 7203,
+                'NODE_ENV': isDev ? 'dev' : 'build'
+            };
+        return options;
     };
     return config;
 };

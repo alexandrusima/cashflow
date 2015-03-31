@@ -20,6 +20,36 @@ gulp.task('template-cache', ['clean-build-code'], function () {
                .pipe(gulp.dest(config.temp))
 });
 
+gulp.task('optimize', ['inject', 'build-fonts', 'build-images'], function () {
+    log('Optimizing code (js, css, html) for the built version of cashFlowApp.');
+    var templateCache = config.temp + config.templateCache.file;
+    var assets = $.useref.assets({searchPath: './'});
+    var cssFilter = $.filter('**/*.css');
+    var jsFilter = $.filter('**/*.js');
+    return gulp.src(config.index)
+            .pipe($.plumber())
+            .pipe($.inject(gulp.src(templateCache, {read:false}), {
+                starttag: '<!-- inject:templates:js -->'
+            }))
+            .pipe(assets)
+            .pipe(cssFilter)
+            .pipe($.cssUrlAdjuster({
+                replace:  ['../', '../assets/']
+             }))
+            .pipe($.minifyCss({
+                keepSpecialComments: false
+             }))
+            .pipe(cssFilter.restore())
+            .pipe(jsFilter)
+            .pipe($.uglify({
+                preserveComments: false
+             }))
+            .pipe(jsFilter.restore())
+            .pipe(assets.restore())
+            .pipe($.useref())
+            .pipe(gulp.dest(config.buildPath))
+});
+
 gulp.task('clean-build-code', function (done) {
     var files = [].concat(
         config.temp + '**/*.js',
@@ -42,7 +72,13 @@ gulp.task('build-images', ['clean-build-images'], function () {
 });
 
 gulp.task('clean-all', function (done) {
-    var delconfig = [].concat(config.build.fontsDest, config.build.imagesDest, config.temp);
+    var delconfig = [].concat(
+            config.build.fontsDest,
+            config.build.imagesDest,
+            config.temp,
+            config.buildPath + 'js/**/*.js',
+            config.buildPath + 'css/**/*.css'
+    );
     log('Cleaning : ' + $.util.colors.blue(delconfig));
     del(delconfig, done);
 });
@@ -72,7 +108,7 @@ gulp.task('clean-styles', function (done) {
 
 });
 
-gulp.task('styles', function () {
+gulp.task('compile-less', ['clean-styles'], function () {
     log('Compiling Less --> CSS');
     return gulp
           .src(config.less)
@@ -84,10 +120,10 @@ gulp.task('styles', function () {
 });
 
 gulp.task('less-watcher', function () {
-    gulp.watch([config.less], ['styles']);
+    gulp.watch([config.less], ['compile-less']);
 });
 
-gulp.task('inject', function() {
+gulp.task('inject', ['compile-less', 'template-cache'], function() {
     log('working on Dependencies');
     var options = config.getWiredepDefaultOptions();
     var wiredep = require('wiredep').stream;
@@ -99,8 +135,15 @@ gulp.task('inject', function() {
            .pipe(gulp.dest(config.indexDest));
 });
 
+gulp.task('serve-build', ['optimize'], function () {
+    return serve(false);
+});
+
 gulp.task('serve-dev', ['inject'], function () {
-    var options = config.getWebserverOptions();
+    return serve(true);
+});
+function serve(isDev) {
+    var options = config.getWebserverOptions(isDev);
     return $.nodemon(options)
             .on('restart', function (ev) {
                 log('**** nodemon restarted');
@@ -112,37 +155,44 @@ gulp.task('serve-dev', ['inject'], function () {
             })
             .on('start', function () {
                 log('*** nodemon started')
-                startBrowserSync(options.env['PORT']);
+                startBrowserSync(isDev, options.env['PORT']);
             })
             .on('crash', function () {
                 log('*** nodemon crashed for some reson');
             })
             .on('exit', function () {
                 log('*** nodemon exited cleanly.');
-            })
-    ;
-});
-
-function startBrowserSync(port) {
+            });
+}
+function startBrowserSync(isDev, port) {
     if (args.nosync || browserSync.active) {
         log('Browser sync is active');
         return;
     }
 
     log(' **** starting browser-sync on port ' + port);
-    gulp.watch([config.less], ['styles'])
-        .on('change', function (event) {
-            changeEvent(event)
-        })
+    if(isDev) {
+        gulp.watch([config.less], ['compile-less'])
+            .on('change', function (event) {
+                changeEvent(event)
+            });
+    }
+    else {
+        gulp.watch([config.less, config.jsPath, config.dev.htmltemplates], ['optimize'])
+            .on('change', function (event) {
+                changeEvent(event)
+            });
+    }
+
     var options = {
         proxy: 'localhost:' + port,
         port: 8080,
-        files: [
+        files: isDev ? [
             config.client + '**/*.*',
             './index.html',
             '!./**/*.less',
             config.client + '.tmp/**/*.css'
-        ],
+        ] : [],
         ghostMode: {
             clicks: true,
             location: false,
