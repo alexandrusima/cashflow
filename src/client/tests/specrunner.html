@@ -1,0 +1,72 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test review</title>
+  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="mocha"></div>
+  <!-- inject:testlibraries:js -->
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/mocha-clean/index.js"></script>
+  <script src="/node_modules/sinon-chai/lib/sinon-chai.js"></script>
+  <!-- endinject -->
+
+  <script>
+  var assert = chai.assert;
+  var expect = chai.expect;
+  var AssertionError = chai.AssertionError;
+  mocha.setup('bdd');
+  mocha.traceIgnores = ['mocha.js', 'chai.js', 'angular.js'];
+</script>
+<!-- bower:js -->
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="../bower_components/jquery.easing/js/jquery.easing.js"></script>
+<script src="../bower_components/jquery-flot/jquery.flot.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../bower_components/photoswipe/dist/photoswipe.js"></script>
+<script src="../bower_components/jquery-icheck/icheck.min.js"></script>
+<script src="../bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+<script src="../bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../bower_components/moment/moment.js"></script>
+<script src="../bower_components/fullcalendar/dist/fullcalendar.js"></script>
+<script src="../bower_components/FeedEk/js/FeedEk.js"></script>
+<script src="../bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+<script src="../bower_components/kapusta-jquery.sparkline/dist/jquery.sparkline.js"></script>
+<script src="../bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="../bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="/src/client/assets/js/requirejs.js"></script>
+<script src="/src/client/assets/js/charts.js"></script>
+<script src="/src/client/assets/js/charts/jquery.flot.animator.js"></script>
+<script src="/src/client/assets/js/maps/romania.js"></script>
+<script src="/src/client/assets/js/functions.js"></script>
+<script src="/src/client/app/cashFlowApp.module.js"></script>
+<script src="/src/client/app/services/gravatar.js"></script>
+<script src="/src/client/app/controllers/sidebarController.js"></script>
+<script src="/src/client/app/directives/sidebarDirective.js"></script>
+<script src="/src/client/app/directives/toogle.js"></script>
+<script src="/src/client/app/directives/widgets.js"></script>
+<script src="/src/client/app/directives/widgets/profile.js"></script>
+<script src="/src/client/lib/modal-confirm/confirm-modal.controller.js"></script>
+<!-- endinject -->
+<!-- inject:spechelpers:js -->
+<!-- endinject -->
+<!-- inject:specs:js -->
+<script src="/src/client/tests/app/app.spec.js"></script>
+<script src="/src/client/tests/server-integration/clients.spec.js"></script>
+<!-- endinject -->
+<!-- inject:templates:js -->
+<script src="/src/client/.tmp/templates.js"></script>
+<!-- endinject -->
+<script>
+    mocha.run();
+</script>
+</body>
+</html>
